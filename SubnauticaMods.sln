@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modtemplate", "modtemplate", "{FFB5A29E-E2D6-4D06-8E18-0762DBE79557}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4748F08B-707E-4002-A8D5-E63293D90AB0}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		build.cake = build.cake
+		build.ps1 = build.ps1
+		cake.config = cake.config
+		LICENSE = LICENSE
+		nuget.config = nuget.config
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mods", "mods", "{A5581053-545E-40F8-BF6A-24688A7BC1A0}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FFB5A29E-E2D6-4D06-8E18-0762DBE79557} = {4748F08B-707E-4002-A8D5-E63293D90AB0}
+		{A5581053-545E-40F8-BF6A-24688A7BC1A0} = {4748F08B-707E-4002-A8D5-E63293D90AB0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {195D46F6-369E-4035-8ABD-D6162B826724}
+	EndGlobalSection
+EndGlobal
