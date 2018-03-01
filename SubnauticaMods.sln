@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		LICENSE = LICENSE
 		nuget.config = nuget.config
 		README.md = README.md
+		resharper.DotSettings = resharper.DotSettings
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mods", "mods", "{A5581053-545E-40F8-BF6A-24688A7BC1A0}"

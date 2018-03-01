@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <SubnauticaDir>D:\Steamgames\steamapps\common\Subnautica</SubnauticaDir>
+	<SubnauticaDataManagedDir>$(SubnauticaDir)\Subnautica_Data\Managed\</SubnauticaDataManagedDir>
+    <OutputPath>$(SolutionDir)\bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+
+</Project>
