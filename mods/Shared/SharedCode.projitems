@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>0c783278-49b8-4192-bc5d-fda14f86fe9b</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SharedCode</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Config\YamlConfigReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\LogLevel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\QModFileLoggerTarget.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\ILogger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\ILoggerTarget.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\QModLogger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logging\SubnauticaConsoleLoggerTarget.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ModBase\ModBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\DateTimeUtils.cs" />
+  </ItemGroup>
+</Project>

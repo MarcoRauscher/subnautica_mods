@@ -11,21 +11,39 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		build.cake = build.cake
 		build.ps1 = build.ps1
 		cake.config = cake.config
-		LICENSE = LICENSE
 		nuget.config = nuget.config
-		README.md = README.md
-		resharper.DotSettings = resharper.DotSettings
+		SharedConfig.targets = SharedConfig.targets
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mods", "mods", "{A5581053-545E-40F8-BF6A-24688A7BC1A0}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedCode", "mods\Shared\SharedCode.shproj", "{0C783278-49B8-4192-BC5D-FDA14F86FE9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericMod", "mods\GenericMod\GenericMod.csproj", "{FA46370E-1FD1-4C45-9D65-4638FA472480}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		mods\Shared\SharedCode.projitems*{0c783278-49b8-4192-bc5d-fda14f86fe9b}*SharedItemsImports = 13
+		mods\Shared\SharedCode.projitems*{fa46370e-1fd1-4c45-9d65-4638fa472480}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA46370E-1FD1-4C45-9D65-4638FA472480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA46370E-1FD1-4C45-9D65-4638FA472480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA46370E-1FD1-4C45-9D65-4638FA472480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA46370E-1FD1-4C45-9D65-4638FA472480}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FFB5A29E-E2D6-4D06-8E18-0762DBE79557} = {4748F08B-707E-4002-A8D5-E63293D90AB0}
 		{A5581053-545E-40F8-BF6A-24688A7BC1A0} = {4748F08B-707E-4002-A8D5-E63293D90AB0}
+		{0C783278-49B8-4192-BC5D-FDA14F86FE9B} = {A5581053-545E-40F8-BF6A-24688A7BC1A0}
+		{FA46370E-1FD1-4C45-9D65-4638FA472480} = {A5581053-545E-40F8-BF6A-24688A7BC1A0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {195D46F6-369E-4035-8ABD-D6162B826724}

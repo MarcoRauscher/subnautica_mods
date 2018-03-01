@@ -3,8 +3,7 @@
 
   <PropertyGroup>
     <SubnauticaDir>D:\Steamgames\steamapps\common\Subnautica</SubnauticaDir>
-	<SubnauticaDataManagedDir>$(SubnauticaDir)\Subnautica_Data\Managed\</SubnauticaDataManagedDir>
-    <OutputPath>$(SolutionDir)\bin\$(Configuration)\</OutputPath>
+	  <SubnauticaDataManagedDir>$(SubnauticaDir)\Subnautica_Data\Managed</SubnauticaDataManagedDir>
   </PropertyGroup>
 
 </Project>
