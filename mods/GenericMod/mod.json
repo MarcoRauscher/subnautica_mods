@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace GenericMod
-{
-    class mod
-    {
-    }
+﻿{
+  "Id": "snowrabbit007.subnautica.GenericMod",
+  "DisplayName": "GenericMod",
+  "Author": "snowrabbit007",
+  "Version": "1.0.0",
+  "Requires": [],
+  "Enable": true,
+  "AssemblyName": "GenericMod.dll",
+  "EntryMethod": "GenericMod.GenericMod.Load",
+  "Config": {}
 }
