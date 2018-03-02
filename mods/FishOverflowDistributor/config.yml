@@ -1,0 +1,4 @@
+﻿#FishOverflowDistributor Configuration
+
+#Lowest loglevel to show in logs. Possible values in ascending order: [ Trace, Info, Warning, Error, Fatal ]
+LogLevel : Trace
