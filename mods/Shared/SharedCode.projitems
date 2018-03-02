@@ -16,7 +16,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Logging\ILoggerTarget.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\QModLogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\SubnauticaConsoleLoggerTarget.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ModBase\ModBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\DateTimeUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\ExceptionUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\GameObjectExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\SubnauticaItemUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\SubnauticaSceneTraversalUtils.cs" />
   </ItemGroup>
 </Project>

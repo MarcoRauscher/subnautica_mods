@@ -7,12 +7,16 @@ namespace SharedCode.Logging
     {
         private readonly string _modName;
 
-        public SubnauticaConsoleLoggerTarget(string modName)
+        public SubnauticaConsoleLoggerTarget(string modName, LogLevel logLevel)
         {
             _modName = modName;
+            LogLevel = logLevel;
         }
 
         #region Implementation of ILoggerTarget
+        /// <inheritdoc />
+        public LogLevel LogLevel { get; set; }
+
         public void StartLogging()
         {
         }
@@ -21,7 +25,7 @@ namespace SharedCode.Logging
         {
         }
 
-        public void Log(string text)
+        public void Log(string text, LogLevel messageLogLevel)
         {
             Console.WriteLine(
                 $"[{DateTimeUtils.GetTimeString(DateTime.Now)}] [{_modName}] {text} {Environment.NewLine}");

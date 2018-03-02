@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SharedCode.Utils;
 
 namespace SharedCode.Logging
 {
@@ -8,19 +9,16 @@ namespace SharedCode.Logging
         private const LogLevel DefaultLogLevel = LogLevel.Warning;
 
         private readonly List<ILoggerTarget> _loggerTargets;
-        private readonly LogLevel _logLevel;
-        private readonly string _defaultModule;
 
-        public QModLogger(LogLevel logLevel, string defaultModule)
+        public QModLogger()
         {
-            _logLevel = logLevel;
             _loggerTargets = new List<ILoggerTarget>();
-            _defaultModule = defaultModule;
         }
 
-        private bool ShouldLog(LogLevel messageLogLevel)
+        public ILogger WithTarget(ILoggerTarget target)
         {
-            return messageLogLevel >= _logLevel;
+            _loggerTargets.Add(target);
+            return this;
         }
 
         #region Implementation of ILogger
@@ -30,96 +28,59 @@ namespace SharedCode.Logging
                 target.EndLogging();
         }
 
-        public void Open()
+        public ILogger Open()
         {
             foreach (ILoggerTarget target in _loggerTargets)
                 target.StartLogging();
-        }
 
-        public void AddLoggerTarget(ILoggerTarget target)
-        {
-            _loggerTargets.Add(target);
-        }
-
-        public void LogTrace(string text, string module)
-        {
-            Log(text, module, LogLevel.Trace);
-        }
-
-        public void LogInfo(string text, string module)
-        {
-            Log(text, module, LogLevel.Info);
-        }
-
-        public void LogWarning(string text, string module)
-        {
-            Log(text, module, LogLevel.Warning);
-        }
-
-        public void LogError(string text, string module)
-        {
-            Log(text, module, LogLevel.Error);
-        }
-
-        public void LogFatal(string text, string module)
-        {
-            Log(text, module, LogLevel.Fatal);
-        }
-
-        public void LogException(Exception e, string module)
-        {
-            string text = e.Message + Environment.NewLine + e.StackTrace;
-            LogFatal(text, module);
+            return this;
         }
 
         public void LogTrace(string text)
         {
-            LogTrace(text, _defaultModule);
+            Log(text, LogLevel.Trace);
         }
 
         public void LogInfo(string text)
         {
-            LogInfo(text, _defaultModule);
+            Log(text, LogLevel.Info);
         }
 
         public void LogWarning(string text)
         {
-            LogWarning(text, _defaultModule);
+            Log(text, LogLevel.Warning);
         }
 
         public void LogError(string text)
         {
-            LogError(text, _defaultModule);
+            Log(text, LogLevel.Error);
         }
 
         public void LogFatal(string text)
         {
-            LogFatal(text, _defaultModule);
+            Log(text, LogLevel.Fatal);
         }
 
-        public void LogException(Exception e)
+        public void LogException(Exception e, string prependingText)
         {
-            LogException(e, _defaultModule);
+            string result = prependingText + Environment.NewLine;
+            result += ExceptionUtils.GetExceptionErrorString(e);
+            LogFatal(result);
         }
 
         public void Log(string text)
         {
-            Log(text, _defaultModule);
+            Log(text, DefaultLogLevel);
         }
 
-        public void Log(string text, string module)
+        public void Log(string text, LogLevel messageLogLevel)
         {
-            Log(text, module, DefaultLogLevel);
-        }
-
-        public void Log(string text, string module, LogLevel logLevel)
-        {
-            if (!ShouldLog(logLevel))
-                return;
-
             foreach (ILoggerTarget target in _loggerTargets)
             {
-                target.Log($"[{logLevel.ToString()}] [{module}] {text}");
+                if (!(messageLogLevel > target.LogLevel))
+                    return;
+
+                target.Log($"[{messageLogLevel.ToString()}] {text}", messageLogLevel);
             }
         }
         #endregion

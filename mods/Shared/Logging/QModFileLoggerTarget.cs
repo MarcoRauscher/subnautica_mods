@@ -9,11 +9,13 @@ namespace SharedCode.Logging
         private readonly string _fullFilePath;
         private DateTime _startTime;
 
-
-        public QModFileLoggerTarget(string fullFilePath)
+        public QModFileLoggerTarget(string fullFilePath, LogLevel logLevel)
         {
             _fullFilePath = fullFilePath;
+            LogLevel = logLevel;
         }
+
+        public LogLevel LogLevel { get; set; }
 
         #region Implementation of ILoggerTarget
         public void StartLogging()
@@ -47,8 +49,11 @@ namespace SharedCode.Logging
             }
         }
 
-        public void Log(string text)
+        public void Log(string text, LogLevel messageLogLevel)
         {
+            if (!(messageLogLevel >= LogLevel))
+                return;
+
             try
             {
                 File.AppendAllText(_fullFilePath,

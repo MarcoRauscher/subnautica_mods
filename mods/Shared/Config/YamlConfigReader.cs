@@ -8,7 +8,7 @@ namespace SharedCode.Config
     {
         public static T Readconfig<T>(string fullFilePath, Action<Exception> errorLogCallback)
         {
-            var deserializer = new DeserializerBuilder().Build();
+            Deserializer deserializer = new DeserializerBuilder().Build();
 
             try
             {
