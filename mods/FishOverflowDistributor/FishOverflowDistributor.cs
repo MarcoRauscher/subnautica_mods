@@ -14,7 +14,7 @@ namespace FishOverflowDistributor
     /// </summary>
     public class FishOverflowDistributor
     {
-        private const string ModId = "snowrabbit007.subnauticamod.FishOverflowDistributor"; //same as in mod.json
+        private const string ModId = "snowrabbit007_subnauticamod_FishOverflowDistributor"; //same as in mod.json
         private const string ModName = "FishOverflowDistributor";                        //same as in mod.json
         private const string LogFileName = "log.txt";
         private const string ConfigFileName = "config.yml";
