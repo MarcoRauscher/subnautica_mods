@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Harmony;
 using SharedCode.Utils;
@@ -75,28 +76,34 @@ namespace FishOverflowDistributor.Patches
             FishOverflowDistributor.Logger.LogTrace(
                 $"Waterpark contains two creatures '{creature.gameObject.name}' of TechType '{creatureTechType.ToString()}' which can breed with each other.");
 
+            BaseBioReactor suitableReactor;
+            try
+            {
+                //Get a reactor which has space for the item in the same base
+                suitableReactor = SubnauticaSceneTraversalUtils
+                                                 .GetComponentsInSameBase<BaseBioReactor>(__instance.gameObject)
+                                                 .First(
+                                                     reactor =>
+                                                     {
+                                                         var itemsContainer = Traverse
+                                                                              .Create(reactor)
+                                                                              .Property("container")
+                                                                              .GetValue<ItemsContainer>();
 
-            //Get a reactor which has space for the item in the same base
-            BaseBioReactor suitableReactor = SubnauticaSceneTraversalUtils
-                                             .GetComponentsInSameBase<BaseBioReactor>(__instance.gameObject)
-                                             .First(
-                                                 reactor =>
-                                                 {
-                                                     var itemsContainer = Traverse
-                                                                          .Create(reactor)
-                                                                          .Property("container")
-                                                                          .GetValue<ItemsContainer>();
+                                                         if (itemsContainer != null)
+                                                             return itemsContainer.HasRoomFor(
+                                                                 creature.pickupable);
 
-                                                     if (itemsContainer != null)
-                                                         return itemsContainer.HasRoomFor(
-                                                             creature.pickupable);
+                                                         FishOverflowDistributor.Logger.LogTrace(
+                                                             $"PropertyInfo or value for property 'container' in class 'BaseBioReactor' with type 'ItemsContainer' was null -> Should not happen, investigate!.");
 
-                                                     FishOverflowDistributor.Logger.LogError(
-                                                         $"PropertyInfo or value for property 'container' in class 'BaseBioReactor' with type 'ItemsContainer' was null -> Should not happen, investigate!.");
-
-                                                     return false;
-                                                 });
-
+                                                         return false;
+                                                     });
+            }
+            catch (Exception)
+            {
+                return false;
+            }
             if (suitableReactor == null)
             {
                 FishOverflowDistributor.Logger.LogTrace("Could not find suitable reactor");
