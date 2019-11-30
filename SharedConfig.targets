@@ -2,8 +2,10 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <SubnauticaDir>D:\Steamgames\steamapps\common\Subnautica</SubnauticaDir>
+    <SubnauticaDir>C:\Program Files (x86)\Steam\steamapps\common\Subnautica</SubnauticaDir>
 	  <SubnauticaDataManagedDir>$(SubnauticaDir)\Subnautica_Data\Managed</SubnauticaDataManagedDir>
+    <BelowZeroDir>C:\Program Files (x86)\Steam\steamapps\common\SubnauticaZero</BelowZeroDir>
+    <BelowZeroManagedDir>$(BelowZeroDir)\SubnauticaZero_Data\Managed</BelowZeroManagedDir>
   </PropertyGroup>
 
 </Project>

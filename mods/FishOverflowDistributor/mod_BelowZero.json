@@ -1,0 +1,12 @@
+﻿{
+  "Id": "snowrabbit007_subnautica_FishOverflowDistributor",
+  "DisplayName": "FishOverflowDistributor",
+  "Author": "snowrabbit007",
+  "Version": "1.0.1",
+  "Requires": [],
+  "Enable": true,
+  "Game": "BelowZero",
+  "AssemblyName": "FishOverflowDistributor.dll",
+  "EntryMethod": "FishOverflowDistributor.FishOverflowDistributor.Load",
+  "Config": {}
+}

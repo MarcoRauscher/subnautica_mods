@@ -52,11 +52,11 @@ namespace FishOverflowDistributor.Patches
 
             FishOverflowDistributor.Logger.LogTrace(
                 "Checking whether creatureEggs.containsKey(creatureTechType)");
-
+#if SUBNAUTICA
             //we don't want to distribute creature eggs
             if (WaterParkCreature.creatureEggs.ContainsKey(creatureTechType))
                 return false;
-
+#endif
             FishOverflowDistributor.Logger.LogTrace(
                 $"Waterpark '{__instance.gameObject.name}' contains creature '{creature.gameObject.name}' and has enough space for another one.");
 
@@ -143,9 +143,11 @@ namespace FishOverflowDistributor.Patches
                 : newCreature.GetComponent<Pickupable>();
 
             newCreature.setActive();*/
-
+#if SUBNAUTICA
             pickupable = pickupable.Pickup(false);
-
+#elif BELOWZERO
+            pickupable.Pickup(false);
+#endif
             // pickupable.GetComponent<WaterParkItem>()?.SetWaterPark(null);
 
             var itemToAdd = new InventoryItem(pickupable);

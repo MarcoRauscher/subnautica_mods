@@ -5,6 +5,7 @@
   "Version": "1.0.1",
   "Requires": [],
   "Enable": true,
+  "Game": "Subnautica",
   "AssemblyName": "FishOverflowDistributor.dll",
   "EntryMethod": "FishOverflowDistributor.FishOverflowDistributor.Load",
   "Config": {}
